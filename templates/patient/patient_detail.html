@@ -5,7 +5,9 @@
 <h5>Street: {{object.street}}</h5>
 <h5>Number: {{object.number}}</h5>
 <h5>Phone number: {{object.phone_number}}</h5>
+{% if request.user.is_staff %}
 <form method="POST"> {%csrf_token%}
  <input type="submit" value="Delete it">
 </form>
+{%endif%}
 {%endblock%}
