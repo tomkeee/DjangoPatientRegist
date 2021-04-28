@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'patient.apps.PatientConfig',
     'django.contrib.staticfiles',
     'account',
+    'schedule',
+    'doctor',
     'crispy_forms',
 ]
 

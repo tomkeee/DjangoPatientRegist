@@ -1,10 +1,10 @@
 from django import forms
-from .models import Patient
+from .models import Doctor
 
-class PatientForm(forms.ModelForm):
+class DoctorForm(forms.ModelForm):
     class Meta:
-        model = Patient
-        fields = ["first_name","last_name","street","city","number","phone_number"]
+        model=Doctor
+        fields=["first_name","last_name","street","city","number","phone_number","title","price_for_visit"]
         widgets ={
             'first_name': forms.TextInput(attrs={'class':'form-control'}),
             'last_name': forms.TextInput(attrs={'class':'form-control'}),
@@ -12,4 +12,6 @@ class PatientForm(forms.ModelForm):
             'city': forms.TextInput(attrs={'class':'form-control'}),
             'number': forms.NumberInput(attrs={'class':'form-control'}),
             'phone_number': forms.TextInput(attrs={'class':'form-control'}),
+            'title':forms.Select(attrs={'class':'form-control'}),
+            'price_for_visit': forms.NumberInput(attrs={'class':'form-control'}),
         } 
