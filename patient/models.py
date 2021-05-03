@@ -14,7 +14,7 @@ class Patient(models.Model):
     
 
     def get_absolute_url(self):
-        return reverse("patient-detail",kwargs={"id":self.id})
+        return reverse("patient-detail",kwargs={"pk":self.id})
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

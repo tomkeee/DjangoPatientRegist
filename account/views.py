@@ -44,3 +44,6 @@ def logout_view(request):
     logout(request)
     # request.user == Anon User
     return redirect("/login")
+
+def home_view(request):
+    return redirect("/patient")

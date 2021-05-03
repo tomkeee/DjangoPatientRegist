@@ -8,11 +8,11 @@ def doctor_list_view(request):
     context = {
         "content":queryset
     }
-    return render(request,"doctor/doctor_list.html",context)
+    return render(request,"patient/patient_list.html",context)
 
-def doctor_detail_view(request,id):
+def doctor_detail_view(request,pk):
     try:
-        obj=Doctor.objects.get(id=id)
+        obj=Doctor.objects.get(id=pk)
     except Patient.DoesNotExist:
         raise Http404
     if request.method=="POST":
@@ -29,8 +29,8 @@ def doctor_create_view(request):
         if form.is_valid():
             form.save()
             form=DoctorForm()
-        return redirect("/doctors")
+        return redirect("/doctor")
     else:
         form=DoctorForm()
     context={"form":form}
-    return render(request,"doctor/doctor_create.html",context)
+    return render(request,"patient/create_form.html",context)

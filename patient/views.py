@@ -26,9 +26,9 @@ def patient_create_view(request):
     context={"form":form}
     return render(request,"patient/create_form.html",context)
 
-def patient_detail_view(request,id):
+def patient_detail_view(request,pk):
     try:
-        obj=Patient.objects.get(id=id)
+        obj=Patient.objects.get(id=pk)
     except Patient.DoesNotExist:
         raise Http404
     if request.method=="POST":
