@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%block title%}New reservation{%endblock%}
+{%block intro%}Make an appointment{%endblock%}
+{%block content%}
+<form  method="POST" class="form-group"> {%csrf_token%}
+    <div class= "form-group">
+    {{my_form}}
+    {% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_css %}         {# Embed Bootstrap CSS #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{ my_form.media }}            {# Adds date-picker required JS and CSS #}
+          <div class="form-check">
+          </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+{%endblock%}

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from account.views import register_view, login_view, logout_view, home_view
-from schedule.views import booking_create_view
+from schedule.views import booking_create_view, booking_list_view
 
 
 
@@ -26,6 +26,7 @@ urlpatterns = [
     path('register/',register_view),
     path('logout/',logout_view),
     path('book/',booking_create_view),
+    path('ls',booking_list_view),
     path('doctor/',include('doctor.urls')),
     path('patient/', include('patient.urls')),
     path('',home_view)

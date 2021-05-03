@@ -8,7 +8,7 @@ def doctor_list_view(request):
     context = {
         "content":queryset
     }
-    return render(request,"patient/patient_list.html",context)
+    return render(request,"doctor/doctor_list.html",context)
 
 def doctor_detail_view(request,pk):
     try:
@@ -33,4 +33,4 @@ def doctor_create_view(request):
     else:
         form=DoctorForm()
     context={"form":form}
-    return render(request,"patient/create_form.html",context)
+    return render(request,"doctor/create_form.html",context)
