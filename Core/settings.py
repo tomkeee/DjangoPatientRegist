@@ -36,11 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'patient.apps.PatientConfig',
     'django.contrib.staticfiles',
+  
+    #our apps
     'account',
     'schedule',
     'doctor',
+    'patient',
+
+    #third party apps
     'crispy_forms',
     'datetimepicker',
     'bootstrap_datepicker_plus',
@@ -132,7 +136,11 @@ LOGIN_URL="/login"
 LOGIN_REDIRECT_URL="/"
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS=[
+    BASE_DIR / 'static',
+]
 
+print(BASE_DIR)
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
 # Default primary key field type

@@ -11,13 +11,10 @@ def booking_create_view(request):
     if request.method=="POST":
         form=BookingForm(request.POST or None)
         if form.is_valid():
-            print("OK")
             form.save()
             form=BookingForm()
-        print("psu w dupe")
         return redirect("/")
     else:
-        print("Error")
         form=BookingForm()
     context={"my_form":form}
     return render(request,"schedule/create_form.html",context)

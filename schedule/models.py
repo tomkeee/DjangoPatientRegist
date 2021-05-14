@@ -14,4 +14,4 @@ class Booking(models.Model):
     check_out_date=models.DateTimeField(auto_now=False, auto_now_add=False,)
     
     def __str__(self):
-        return f"{self.user} has made an appointment with {self.doctor} from {self.check_in_date}"
+        return f"{self.user} has made an appointment with {self.doctor} from {self.check_in_date.strftime('%d/%m/%Y')}"

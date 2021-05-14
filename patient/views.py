@@ -16,7 +16,6 @@ def patient_list_view(request):
 def patient_create_view(request):
     if request.method=="POST":
         form=PatientForm(request.POST or None)
-
         if form.is_valid:
             form.save()
             form=PatientForm()

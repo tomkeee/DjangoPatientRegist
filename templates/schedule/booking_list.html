@@ -3,6 +3,8 @@
 {%block intro%} List of appointments {%endblock%}
 {%block content%}
 {%for instance in content%}
-<h4 class="ok">{{instance.id}}<br>From:{{instance.check_in_date}} <br> To: {{instance.check_out_date}}<br></h4>
+<ul class="list-group">
+    <li class="list-group-item">{{instance.id}}<br><strong>FROM: </strong>{{instance.check_in_date}} <br><strong>TO: </strong>{{instance.check_out_date}}</li>
+</ul>
 {%endfor%}
 {%endblock%}

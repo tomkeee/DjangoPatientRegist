@@ -26,7 +26,7 @@ urlpatterns = [
     path('register/',register_view),
     path('logout/',logout_view),
     path('book/',booking_create_view),
-    path('ls',booking_list_view),
+    path('book-list',booking_list_view),
     path('doctor/',include('doctor.urls')),
     path('patient/', include('patient.urls')),
     path('',home_view)

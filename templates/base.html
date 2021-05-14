@@ -33,28 +33,10 @@
         .content{
             background-color:#D6EDFF;
         }
-        .x{
-            position:absolute;
-            margin-left:89.5%;
-        }
-        .z{
-            position:absolute;
-            margin-left:84%;
-        }
-        .z-staff{
+        .logout{
             position: absolute;
-            margin-left:79%
+            margin-right: 0;
         }
-        .doctor-list{
-            position: absolute;
-            margin-left:50%;
-        }
-        .doctor-create{
-            position: absolute;
-            margin-left:44.3%;
-        }
-        
-
   footer{
   position: fixed;
   left: 0;
@@ -81,24 +63,55 @@
         <a href="/create">Create</a>
         <a href="/">List Of Patients</a>
     </div> -->
+    
+    {%if user.is_authenticated%}
+    <nav class="navbar navbar-expand-lg" style="background-color: #D6EDFF;">
+            <div class="dropdown show">
+                <a class="btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" >Patients</button>
+                </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="/patient/create">Create</a>
+                {%endif%}
+                {% if request.user.is_staff %}
+                <a class="dropdown-item" href="/">List</a>
+                {%endif%}
+              </div>
+            </div>
 
-    <nav class="navbar navbar-light" style="background-color: #D6EDFF;">
-        <form class="container-fluid justify-content-start">
-            {% if request.user.is_staff %}
-         <a href="/patient/create"><button class="btn btn-outline-success me-2" type="button">Create</button></a>
-         <a href="/admin" class="z"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Admin</button></a>
-         <a href="/doctor/create" class="doctor-create"><button class="btn btn-outline-success me-2" type="button">Create</button></a>
-         <a href="/book" class="z-staff"><button class="btn btn-outline-success me-2" type="button">Book</button></a>
+            {%if user.is_authenticated%}
+            <div class="dropdown show">
+                <a class="btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" >Doctor</button>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/doctor/create">Create</a>
+                  <a class="dropdown-item" href="/doctor">List</a>
+                  {%endif%}
+                </div>
+            </div>
+
+            {%if user.is_authenticated%}
+            <div class="dropdown show">
+                <a class="btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" >Bookings</button>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/book">Make an appointment</a>
+                  <a class="dropdown-item" href="/book-list">Appointments</a>
+                  {%endif%}
+                </div>
+            </div>
+            {%if user.is_authenticated%}
+
+            <div style="margin-left:900px;">
+                <a href="/admin"><button class="btn btn-outline-success" >Admin</button></a>
+                <a href="/logout"><button class="btn btn-outline-success" style="margin-left: 5px;" >Logout</button></a>
+                {%endif%}
+            </div>
+                
+            </nav>
         
-         
-         {%endif%}
-         {%if user.is_authenticated%}
-         <a href="/doctor" class="doctor-list"><button class="btn btn-outline-success my-2 my-sm-0" type="button">List</button></a>
-         <a href="/"> <button class="btn btn-outline-success me-2" type="button">List</button></a>
-         <a href="/logout" class="x"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Log out</button></a>
-         {%endif%}
-        </form>
-    </nav>
     
     <div id="content", name="content", class="main">
         <div class="row justify-content-center" style="margin-left: 0px;
@@ -121,5 +134,8 @@
             <h5>Logged in as {{request.user}}</h5>
       </footer>
     </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
